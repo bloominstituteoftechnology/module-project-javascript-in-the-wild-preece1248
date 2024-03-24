@@ -29,9 +29,21 @@
     // ❗ Notes
     // 🧠 Try using destructuring to grab a reference to the first element of the array
     // 🧠 Try using the at method of arrays to grab the last element
-    const swapper = () => {
-
+    const swapper = (array) => {
+    if (array.length < 2) 
+    return "No swap performed";
+    const [head, ...rest] = array;
+    for (let i = 0; i < array.length; i++) {
+      if (i === 0) {
+        array[i] = array[array.length - 1];
+      } else if (i === array.length - 1) {
+        array[i] = head;
+      } else {
+        array[i] = rest[i - 1];
+      }
     }
+    return array;
+}
 
     // 👉 CHALLENGE 2
     // 🧠 The function headAndTail takes an array as its argument.
